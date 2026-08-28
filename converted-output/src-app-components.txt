@@ -1,0 +1,694 @@
+﻿===== FILE: D:\RAMA\VenturesDirectory\src\app\components\AIAdvisorSection.jsx =====
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faRobot,
+  faBalanceScale,
+  faChartLine,
+  faChevronRight,
+  faStar
+} from "@fortawesome/free-solid-svg-icons";
+const CARDS = [
+  {
+    id: "advisor",
+    avatarClass: "blue",
+    icon: faRobot,
+    title: "AI Advisor",
+    desc: "Not sure what to buy? Ask AI and get best recommendations.",
+    cta: "Start AI Chat",
+    ctaClass: "blue",
+    ctaIcon: faChevronRight,
+    trusted: true
+  },
+  {
+    id: "compare",
+    avatarClass: "purple",
+    icon: faBalanceScale,
+    title: "AI Compare",
+    desc: "Compare projects, builders & locations using AI.",
+    cta: "Compare Now",
+    ctaClass: "purple",
+    ctaIcon: null,
+    trusted: false
+  },
+  {
+    id: "insights",
+    avatarClass: "green",
+    icon: faChartLine,
+    title: "Investment Insights",
+    desc: "Explore high ROI areas & growth corridors.",
+    cta: "Explore Insights",
+    ctaClass: "green",
+    ctaIcon: null,
+    trusted: false
+  }
+];
+function AIAdvisorSection() {
+  return <div className="row g-3">
+      {CARDS.map((c) => <div key={c.id} className="col-12 col-md-4">
+          <div className="vd-advisor-card">
+            <div className={`vd-advisor-avatar ${c.avatarClass}`}>
+              <FontAwesomeIcon icon={c.icon} />
+            </div>
+            <div>
+              <div className="vd-advisor-title">{c.title}</div>
+              <div className="vd-advisor-desc">{c.desc}</div>
+              <button className={`vd-advisor-cta ${c.ctaClass}`}>
+                {c.cta}
+                {c.ctaIcon && <FontAwesomeIcon icon={c.ctaIcon} style={{ fontSize: 10 }} />}
+              </button>
+              {c.trusted && <div className="vd-trusted-row">
+                  <span>Trusted By Thousands of Users</span>
+                  <span className="vd-stars">
+                    {[...Array(5)].map((_, i) => <FontAwesomeIcon key={i} icon={faStar} />)}
+                  </span>
+                  <span className="vd-rating">4.8/5</span>
+                </div>}
+            </div>
+          </div>
+        </div>)}
+    </div>;
+}
+export {
+  AIAdvisorSection as default
+};
+
+
+===== FILE: D:\RAMA\VenturesDirectory\src\app\components\AIInsightBanner.jsx =====
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBolt, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+function AIInsightBanner() {
+  return <div className="vd-banner">
+      <div className="vd-banner-icon">
+        <FontAwesomeIcon icon={faBolt} />
+      </div>
+      <p className="vd-banner-text mb-0">
+        <strong>AI Insight:</strong>&nbsp; Top areas near ORR and Future City are seeing{" "}
+        <strong>15â€“20% growth</strong> in property value due to infrastructure development.
+      </p>
+      <button className="vd-banner-btn">
+        View Full Insights
+        <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: 10 }} />
+      </button>
+    </div>;
+}
+export {
+  AIInsightBanner as default
+};
+
+
+===== FILE: D:\RAMA\VenturesDirectory\src\app\components\FilterBar.jsx =====
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faLocationDot,
+  faIndianRupeeSign,
+  faBuilding,
+  faShieldHalved,
+  faHardHat,
+  faCalendarDays,
+  faSliders,
+  faChevronDown
+} from "@fortawesome/free-solid-svg-icons";
+const FILTERS = [
+  { icon: faLocationDot, label: "Location", value: "All Locations" },
+  { icon: faIndianRupeeSign, label: "Budget", value: "Any Budget" },
+  { icon: faBuilding, label: "Property Type", value: "All Types" },
+  { icon: faShieldHalved, label: "Approval", value: "Any Approval" },
+  { icon: faHardHat, label: "Builder", value: "All Builders" },
+  { icon: faCalendarDays, label: "Possession", value: "Any Time" }
+];
+function FilterBar() {
+  return <div className="vd-filter-wrap">
+      {FILTERS.map((f) => <div key={f.label} className="vd-filter-item">
+          <div className="vd-fl-label">
+            <FontAwesomeIcon icon={f.icon} className="fa-icon" />
+            {f.label}
+          </div>
+          <div className="vd-fl-val">
+            <span>{f.value}</span>
+            <FontAwesomeIcon icon={faChevronDown} className="fa-chevron-down" />
+          </div>
+        </div>)}
+      <button className="vd-filter-more-btn">
+        <FontAwesomeIcon icon={faSliders} />
+        More Filters
+      </button>
+    </div>;
+}
+export {
+  FilterBar as default
+};
+
+
+===== FILE: D:\RAMA\VenturesDirectory\src\app\components\Footer.jsx =====
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleCheck } from "@fortawesome/free-solid-svg-icons";
+const BANKS = ["SBI", "HDFC", "ICICI Bank", "Axis Bank", "Piramal"];
+function Footer() {
+  return <footer className="vd-footer">
+      <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 flex-wrap">
+        {
+    /* Loan Badge */
+  }
+        <div className="vd-loan-badge">
+          <FontAwesomeIcon icon={faCircleCheck} />
+          Bank Loan Available
+        </div>
+
+        {
+    /* Bank Logos */
+  }
+        <div className="vd-banks-row">
+          {BANKS.map((b) => <div key={b} className="vd-bank-pill">{b}</div>)}
+        </div>
+      </div>
+      <p className="vd-copyright">
+        Â© 2024 VenturesDirectory. All rights reserved.
+      </p>
+    </footer>;
+}
+export {
+  Footer as default
+};
+
+
+===== FILE: D:\RAMA\VenturesDirectory\src\app\components\Hero.jsx =====
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass, faMicrophone, faStar, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+const CHIPS = [
+  "Open plots under \u20B940L near Future City",
+  "Villas near Financial District",
+  "HMDA layouts near ORR Exit 13",
+  "Compare Aparna vs My Home",
+  "Best Investment in Shadnagar"
+];
+function Hero() {
+  return <section className="vd-hero">
+      <div className="vd-hero-bg" />
+      <div className="vd-hero-inner">
+        <h1 className="vd-hero-h1">
+          Find the Right Real Estate Venture Using{" "}
+          <span className="ai-word">
+            AI
+            <sup style={{ fontSize: "0.45em", verticalAlign: "super" }}>âœ¦</sup>
+          </span>
+        </h1>
+        <p className="vd-hero-sub">
+          Search 10,000+ RERA Projects, Plots, Villas &amp; Apartments Across India
+        </p>
+
+        {
+    /* Search Bar */
+  }
+        <div className="vd-searchbar">
+          <FontAwesomeIcon icon={faMagnifyingGlass} className="vd-searchbar-icon" />
+          <input
+    className="vd-searchbar-input"
+    type="text"
+    placeholder="What are you looking for?"
+  />
+          <button className="vd-mic-btn" title="Voice search">
+            <FontAwesomeIcon icon={faMicrophone} />
+          </button>
+          <button className="vd-askai-btn">
+            <FontAwesomeIcon icon={faStar} />
+            Ask AI
+          </button>
+        </div>
+
+        {
+    /* Chips */
+  }
+        <div className="vd-chips">
+          {CHIPS.map((chip) => <button key={chip} className="vd-chip">
+              {chip}
+            </button>)}
+          <button className="vd-chip" style={{ padding: "5px 10px" }}>
+            <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: 11 }} />
+          </button>
+        </div>
+      </div>
+    </section>;
+}
+export {
+  Hero as default
+};
+
+
+===== FILE: D:\RAMA\VenturesDirectory\src\app\components\Navbar.jsx =====
+
+
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faChevronDown,
+  faBell,
+  faHeart,
+  faBars,
+  faTimes,
+  faGlobe,
+  faRobot
+} from "@fortawesome/free-solid-svg-icons";
+const NAV_LINKS = [
+  { label: "Buy", dropdown: true },
+  { label: "Rent", dropdown: false },
+  { label: "Invest", dropdown: false },
+  { label: "Compare", dropdown: false },
+  { label: "Maps", dropdown: false },
+  { label: "Builders", dropdown: false },
+  { label: "Projects", dropdown: false },
+  { label: "Insights", dropdown: false, badge: "New" }
+];
+function Navbar() {
+  const [open, setOpen] = useState(false);
+  return <>
+      <nav className="vd-navbar">
+        {
+    /* Logo */
+  }
+        <a href="#" className="vd-logo-wrap" style={{ textDecoration: "none" }}>
+          <div className="vd-logo-text">
+            Ventures<span className="blue">Directory</span>
+            <span className="vd-logo-ai-badge">AI</span>
+          </div>
+          <div className="vd-logo-sub">AI Real Estate Discovery</div>
+        </a>
+
+        {
+    /* Desktop Nav Links */
+  }
+        <div className="vd-nav-links">
+          {NAV_LINKS.map((l) => <a key={l.label} href="#" className="vd-navlink">
+              {l.label}
+              {l.dropdown && <FontAwesomeIcon icon={faChevronDown} className="fa-chevron-down" />}
+              {l.badge && <span className="vd-badge-new">{l.badge}</span>}
+            </a>)}
+        </div>
+
+        {
+    /* Right Actions */
+  }
+        <div className="vd-nav-actions">
+          {
+    /* Region */
+  }
+          <div className="vd-nav-region d-none d-md-flex">
+            <FontAwesomeIcon icon={faGlobe} style={{ fontSize: 13 }} />
+            <span>IN</span>
+            <FontAwesomeIcon icon={faChevronDown} style={{ fontSize: 9, opacity: 0.6 }} />
+          </div>
+
+          {
+    /* Heart */
+  }
+          <button className="vd-icon-btn d-none d-md-flex">
+            <FontAwesomeIcon icon={faHeart} />
+          </button>
+
+          {
+    /* Bell */
+  }
+          <button className="vd-icon-btn d-none d-md-flex">
+            <FontAwesomeIcon icon={faBell} />
+            <span className="vd-notif-dot">1</span>
+          </button>
+
+          {
+    /* Login */
+  }
+          <a href="#" className="vd-login-link d-none d-md-block">
+            Login / Signup
+          </a>
+
+          {
+    /* AI Advisor */
+  }
+          <a href="#" className="vd-btn-advisor">
+            <FontAwesomeIcon icon={faRobot} />
+            AI Advisor
+          </a>
+
+          {
+    /* Hamburger */
+  }
+          <button
+    className="vd-icon-btn d-lg-none"
+    onClick={() => setOpen(!open)}
+    style={{ borderRadius: 6 }}
+  >
+            <FontAwesomeIcon icon={open ? faTimes : faBars} />
+          </button>
+        </div>
+      </nav>
+
+      {
+    /* Mobile Menu */
+  }
+      {open && <div
+    style={{
+      background: "#fff",
+      borderBottom: "1px solid #e5e7eb",
+      padding: "10px 20px 14px",
+      position: "sticky",
+      top: 54,
+      zIndex: 1040,
+      boxShadow: "0 4px 12px rgba(0,0,0,.08)"
+    }}
+  >
+          <div className="d-flex flex-column gap-1">
+            {NAV_LINKS.map((l) => <a key={l.label} href="#" className="vd-navlink" style={{ fontSize: 14 }}>
+                {l.label}
+                {l.badge && <span className="vd-badge-new ms-1">{l.badge}</span>}
+              </a>)}
+            <hr style={{ margin: "8px 0", borderColor: "#e5e7eb" }} />
+            <a href="#" className="vd-navlink" style={{ fontSize: 14 }}>
+              <FontAwesomeIcon icon={faGlobe} style={{ width: 14 }} />
+              India (IN)
+            </a>
+            <a href="#" className="vd-navlink" style={{ fontSize: 14 }}>
+              Login / Signup
+            </a>
+          </div>
+        </div>}
+    </>;
+}
+export {
+  Navbar as default
+};
+
+
+===== FILE: D:\RAMA\VenturesDirectory\src\app\components\PopularComparisons.jsx =====
+
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+const PAIRS = [
+  { a: "Aparna", b: "My Home" },
+  { a: "Prestige", b: "Sobha" },
+  { a: "Lodha", b: "Brigade" }
+];
+function PopularComparisons() {
+  return <div className="vd-comparisons-wrap">
+      <div className="vd-comp-header">
+        <span className="vd-comp-title">Popular Comparisons</span>
+        <a href="#" className="vd-view-all">
+          View All
+          <FontAwesomeIcon icon={faChevronRight} style={{ fontSize: 10 }} />
+        </a>
+      </div>
+
+      {PAIRS.map((p, i) => <div key={i} className="vd-comp-row">
+          <span className="vd-comp-name">{p.a}</span>
+          <span className="vd-vs-pill">VS</span>
+          <span className="vd-comp-name right">{p.b}</span>
+        </div>)}
+    </div>;
+}
+export {
+  PopularComparisons as default
+};
+
+
+===== FILE: D:\RAMA\VenturesDirectory\src\app\components\PropertySection.jsx =====
+
+
+import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHeart,
+  faLocationDot,
+  faStar,
+  faTableCells,
+  faList,
+  faMap,
+  faChevronDown,
+  faMagnifyingGlassLocation
+} from "@fortawesome/free-solid-svg-icons";
+const PROPERTIES = [
+  {
+    id: 1,
+    status: "New Launch",
+    statusClass: "new-launch",
+    img: "https://images.unsplash.com/photo-1632400990400-416d5460f337?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+    name: "Aparna Western Meadows",
+    builder: "Aparna Constructions",
+    location: "Shadnagar, Near ORR",
+    tags: [
+      { key: "rera", label: "RERA" },
+      { key: "hmda", label: "HMDA" },
+      { key: "loan", label: "Bank Loan" }
+    ],
+    aiLabel: "High ROI Zone",
+    aiDetail: "15-18% Growth Expected"
+  },
+  {
+    id: 2,
+    status: "Under Construction",
+    statusClass: "construction",
+    img: "https://images.unsplash.com/photo-1773470920361-4f6cbb702ce0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+    name: "My Home Tridasa",
+    builder: "My Home Constructions",
+    location: "Tellapur, Near Gachibowli",
+    tags: [
+      { key: "rera", label: "RERA" },
+      { key: "hmda", label: "HMDA" },
+      { key: "loan", label: "Bank Loan" }
+    ],
+    aiLabel: "Great for End Use",
+    aiDetail: "High Residential Demand"
+  },
+  {
+    id: 3,
+    status: "Ready to Move",
+    statusClass: "ready",
+    img: "https://images.unsplash.com/photo-1549499090-c9203d2b20ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=600",
+    name: "Prestige City Hyderabad",
+    builder: "Prestige Group",
+    location: "Rajendra Nagar, Near ORR",
+    tags: [
+      { key: "rera", label: "RERA" },
+      { key: "hmda", label: "HMDA" },
+      { key: "loan", label: "Bank Loan" }
+    ],
+    aiLabel: "High Demand Area",
+    aiDetail: "Excellent Connectivity"
+  }
+];
+const PRICE_PINS = [
+  { top: "14%", left: "68%", label: "\u20B91.2 Cr" },
+  { top: "28%", left: "50%", label: "\u20B995 L" },
+  { top: "22%", left: "34%", label: "\u20B945 L" },
+  { top: "50%", left: "22%", label: "\u20B955 L" },
+  { top: "68%", left: "44%", label: "\u20B925 L" },
+  { top: "38%", left: "72%", label: "\u20B923 L" },
+  { top: "58%", left: "62%", label: "\u20B938 L" }
+];
+const AREA_LABELS = [
+  { top: "8%", left: "55%", text: "Financial District" },
+  { top: "18%", left: "22%", text: "Gachibowli" },
+  { top: "55%", left: "8%", text: "Tellapur" }
+];
+function PropertyCard({ p, faved, onFav }) {
+  return <div className="vd-card">
+      <div className="vd-card-thumb">
+        <img src={p.img} alt={p.name} />
+        <span className={`vd-status-badge ${p.statusClass}`}>{p.status}</span>
+        <button className={`vd-fav-btn ${faved ? "active" : ""}`} onClick={onFav} aria-label="Favourite">
+          <FontAwesomeIcon icon={faHeart} />
+        </button>
+      </div>
+      <div className="vd-card-body">
+        <div className="vd-card-name">{p.name}</div>
+        <div className="vd-card-builder">{p.builder}</div>
+        <div className="vd-card-loc">
+          <FontAwesomeIcon icon={faLocationDot} style={{ fontSize: 10, color: "#9ca3af" }} />
+          {p.location}
+        </div>
+        <div className="vd-tags">
+          {p.tags.map((t) => <span key={t.key} className={`vd-tag ${t.key}`}>{t.label}</span>)}
+        </div>
+        <div className="vd-ai-chip">
+          <FontAwesomeIcon icon={faStar} style={{ fontSize: 10, flexShrink: 0 }} />
+          <span>
+            <strong>AI Insight:</strong> {p.aiLabel} |{" "}
+            <span style={{ fontWeight: 400 }}>{p.aiDetail}</span>
+          </span>
+        </div>
+        <div className="vd-card-actions">
+          <button className="vd-act-btn detail">View Details</button>
+          <button className="vd-act-btn compare">Compare</button>
+          <button className="vd-act-btn explain">
+            <FontAwesomeIcon icon={faStar} style={{ fontSize: 9 }} />
+            AI Explain
+          </button>
+        </div>
+      </div>
+    </div>;
+}
+function MapPane() {
+  return <div className="vd-map-wrap">
+      <div className="vd-map-bg" />
+      <div className="vd-map-grid" />
+
+      {
+    /* Overlay roads simulation */
+  }
+      <div style={{ position: "absolute", top: "42%", left: 0, right: 0, height: 3, background: "#fff", opacity: 0.35 }} />
+      <div style={{ position: "absolute", top: 0, bottom: 0, left: "38%", width: 2.5, background: "#fff", opacity: 0.3 }} />
+      <div style={{ position: "absolute", top: "25%", left: "20%", right: "10%", height: 2, background: "#f0f0f0", opacity: 0.4, transform: "rotate(-8deg)" }} />
+
+      {
+    /* Checkbox */
+  }
+      <label className="vd-map-checkbox-card">
+        <input type="checkbox" defaultChecked style={{ accentColor: "#1a56db", width: 13, height: 13 }} />
+        <FontAwesomeIcon icon={faMagnifyingGlassLocation} style={{ fontSize: 12, color: "#6b7280" }} />
+        Search as I move the map
+      </label>
+
+      {
+    /* Tools */
+  }
+      <button className="vd-map-tools-btn">Tools</button>
+
+      {
+    /* Area labels */
+  }
+      {AREA_LABELS.map((a) => <div key={a.text} className="vd-map-area-label" style={{ top: a.top, left: a.left }}>
+          {a.text}
+        </div>)}
+
+      {
+    /* Price pins */
+  }
+      {PRICE_PINS.map((pin, i) => <div
+    key={i}
+    className={`vd-map-price-pin ${i === 0 ? "active" : ""}`}
+    style={{ top: pin.top, left: pin.left }}
+  >
+          {pin.label}
+        </div>)}
+
+      {
+    /* Zoom controls */
+  }
+      <div className="vd-map-zoom">
+        <button className="vd-map-zoom-btn">+</button>
+        <button className="vd-map-zoom-btn">âˆ’</button>
+      </div>
+
+      {
+    /* Mini card */
+  }
+      <div className="vd-map-mini">
+        <img
+    className="vd-map-mini-img"
+    src="https://images.unsplash.com/photo-1632400990400-416d5460f337?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=120"
+    alt="Aparna Western Meadows"
+  />
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <div className="vd-map-mini-name">Aparna Western Meadows</div>
+          <div className="vd-map-mini-loc">Shadnagar, Near ORR</div>
+          <div className="vd-map-mini-price">â‚¹ 24L â€“ â‚¹ 60L</div>
+        </div>
+        <button className="vd-map-mini-btn">View Details</button>
+      </div>
+    </div>;
+}
+function PropertySection() {
+  const [view, setView] = useState("Grid");
+  const [favs, setFavs] = useState(/* @__PURE__ */ new Set());
+  const toggleFav = (id) => setFavs((prev) => {
+    const next = new Set(prev);
+    next.has(id) ? next.delete(id) : next.add(id);
+    return next;
+  });
+  return <section style={{ padding: "0 20px" }}>
+      {
+    /* Section Header */
+  }
+      <div className="vd-section-bar">
+        <p className="vd-result-label mb-0">
+          Showing <strong>10,342</strong> projects matching your search
+        </p>
+        <div className="vd-controls-row">
+          <span className="vd-sort-label">Sort by:</span>
+          <select className="vd-sort-select">
+            <option>Most Relevant</option>
+            <option>Price: Low to High</option>
+            <option>Price: High to Low</option>
+            <option>Newest First</option>
+          </select>
+          <div className="vd-view-toggle">
+            <button
+    className={`vd-view-btn ${view === "Grid" ? "active" : ""}`}
+    onClick={() => setView("Grid")}
+  >
+              <FontAwesomeIcon icon={faTableCells} /> Grid
+            </button>
+            <button
+    className={`vd-view-btn ${view === "List" ? "active" : ""}`}
+    onClick={() => setView("List")}
+  >
+              <FontAwesomeIcon icon={faList} /> List
+            </button>
+            <button
+    className={`vd-view-btn ${view === "Map" ? "active" : ""}`}
+    onClick={() => setView("Map")}
+  >
+              <FontAwesomeIcon icon={faMap} /> Map
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {
+    /* Cards + Map */
+  }
+      <div className="row g-3">
+        {
+    /* Cards */
+  }
+        <div className="col-12 col-xl-7">
+          <div className="row g-3">
+            {PROPERTIES.map((p) => <div key={p.id} className="col-12 col-sm-6 col-md-4 col-xl-4">
+                <PropertyCard
+    p={p}
+    faved={favs.has(p.id)}
+    onFav={() => toggleFav(p.id)}
+  />
+              </div>)}
+          </div>
+
+          {
+    /* More Projects */
+  }
+          <button className="vd-more-projects-btn">
+            View More Projects
+            <FontAwesomeIcon icon={faChevronDown} style={{ fontSize: 11 }} />
+          </button>
+        </div>
+
+        {
+    /* Map */
+  }
+        <div className="col-12 col-xl-5" style={{ minHeight: 430 }}>
+          <MapPane />
+        </div>
+      </div>
+    </section>;
+}
+export {
+  PropertySection as default
+};
+
+

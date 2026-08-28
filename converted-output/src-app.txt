@@ -1,0 +1,65 @@
+﻿===== FILE: D:\RAMA\VenturesDirectory\src\app\App.jsx =====
+
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/ventures.css";
+import Navbar from "./components/Navbar";
+import Hero from "./components/Hero";
+import FilterBar from "./components/FilterBar";
+import AIInsightBanner from "./components/AIInsightBanner";
+import PropertySection from "./components/PropertySection";
+import AIAdvisorSection from "./components/AIAdvisorSection";
+import PopularComparisons from "./components/PopularComparisons";
+import Footer from "./components/Footer";
+function App() {
+  return <div style={{ minHeight: "100vh", background: "#f1f5f9" }}>
+      {
+    /* Sticky Navbar */
+  }
+      <Navbar />
+
+      {
+    /* Hero â€” full bleed city bg */
+  }
+      <Hero />
+
+      {
+    /* Filter bar overlaps hero bottom */
+  }
+      <FilterBar />
+
+      {
+    /* AI Insight strip */
+  }
+      <AIInsightBanner />
+
+      {
+    /* Property Cards + Map */
+  }
+      <PropertySection />
+
+      {
+    /* AI Advisor Cards + Popular Comparisons */
+  }
+      <section className="vd-advisor-section">
+        <div className="row g-3">
+          <div className="col-12 col-lg-8">
+            <AIAdvisorSection />
+          </div>
+          <div className="col-12 col-lg-4">
+            <PopularComparisons />
+          </div>
+        </div>
+      </section>
+
+      {
+    /* Footer / Bank Strip */
+  }
+      <Footer />
+    </div>;
+}
+export {
+  App as default
+};
+
+
