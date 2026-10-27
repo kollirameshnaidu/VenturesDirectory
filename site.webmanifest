@@ -1,0 +1,18 @@
+{
+  "name": "VenturesDirectory",
+  "short_name": "VenturesDirectory",
+  "description": "Discover real estate ventures across Telangana with RERA, HMDA and DTCP research support.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f1f5f9",
+  "theme_color": "#1a56db",
+  "lang": "en-IN",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
